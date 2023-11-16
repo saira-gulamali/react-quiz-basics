@@ -63,16 +63,7 @@ const QuizApp = () => {
           <ToastContainer />
         </>
       )}
-      {isSummaryButton && (
-        <button
-          onClick={() => {
-            setShowSummary(true);
-            setIsSummaryButton(false);
-          }}
-        >
-          Show Results Summary
-        </button>
-      )}
+
       <button className="mt-20">Next</button>
     </div>
   );
