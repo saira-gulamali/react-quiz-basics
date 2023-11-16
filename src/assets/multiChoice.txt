@@ -1,0 +1,267 @@
+
+// 1. **What is JSX in React?**
+//    - A. JavaScript XML
+//    - B. Java Syntax Extension
+//    - C. JavaScript Extension
+//    - D. JSX is not used in React
+
+//    **Answer: A**
+
+2. **Which hook is used for state management in functional components?**
+   - A. `useEffect`
+   - B. `useContext`
+   - C. `useState`
+   - D. `useReducer`
+
+   **Answer: C**
+
+3. **How do you pass data from a parent component to a child component in React?**
+   - A. Using global variables
+   - B. Using `setState` method
+   - C. Using props
+   - D. Using `render` method
+
+   **Answer: C**
+
+4. **Which of the following is used to conditionally render content in React?**
+   - A. `if-else` statements
+   - B. Ternary operator
+   - C. Logical AND (`&&`) operator
+   - D. All of the above
+
+   **Answer: D**
+
+5. **What is the purpose of the `key` prop when rendering lists in React?**
+   - A. To apply CSS styles
+   - B. To uniquely identify each element in the list
+   - C. To define the order of elements
+   - D. To create dynamic elements
+
+   **Answer: B**
+
+6. **Which hook is used for handling side effects in functional components?**
+   - A. `useEffect`
+   - B. `useReducer`
+   - C. `useState`
+   - D. `useContext`
+
+   **Answer: A**
+
+7. **How is conditional rendering achieved based on state in React?**
+   - A. Using `if-else` statements
+   - B. Using the ternary operator
+   - C. By directly manipulating the DOM
+   - D. All of the above
+
+   **Answer: D**
+
+8. **What is the purpose of the `defaultProps` property in React components?**
+   - A. To set default styles
+   - B. To define default values for props
+   - C. To set default state
+   - D. To define default component structure
+
+   **Answer: B**
+
+9. **What method is used to update state in class components?**
+   - A. `setState`
+   - B. `updateState`
+   - C. `changeState`
+   - D. `modifyState`
+
+   **Answer: A**
+
+10. **How do you pass a function as a prop to a child component in React?**
+    - A. Use the `bind` method
+    - B. Use the `callback` attribute
+    - C. Directly include it in the JSX
+    - D. Functions cannot be passed as props
+
+    **Answer: C**
+
+11. **What is the purpose of the virtual DOM in React?**
+    - A. To directly manipulate the actual DOM
+    - B. To efficiently manage updates to the DOM
+    - C. To handle routing in React
+    - D. To define component structure
+
+    **Answer: B**
+
+12. **Which of the following is used to manage global state in React?**
+    - A. Context API
+    - B. `useEffect` hook
+    - C. `useState` hook
+    - D. Redux
+
+    **Answer: A (and D for more advanced scenarios)**
+
+13. **How do you use inline styles in JSX?**
+    - A. Using the style attribute with a JavaScript object value
+    - B. Using the `css` attribute
+    - C. Using the `inline` attribute
+    - D. Inline styles cannot be applied in JSX
+
+    **Answer: D**
+
+14. **Which method is used to prevent the default behavior of an event in React?**
+    - A. `stopPropagation`
+    - B. `preventDefault`
+    - C. `stopEvent`
+    - D. `haltEvent`
+
+    **Answer: B**
+
+15. **What does unidirectional data flow mean in React?**
+    - A. Data flows in both directions
+    - B. Data flows from child to parent components
+    - C. Data flows in a single, well-defined direction
+    - D. Data flows randomly
+
+    **Answer: C**
+
+16. **What is the purpose of the `useEffect` hook in React?**
+    - A. To manage global state
+    - B. To handle side effects in functional components
+    - C. To update the actual DOM
+    - D. To define default props
+
+    **Answer: B**
+
+17. **When rendering a list in React, why is the `key` prop important?**
+    - A. It sets the font size for each item
+    - B. It defines the order of elements
+    - C. It helps React identify each element uniquely
+    - D. It is not important for rendering lists
+
+    **Answer: C**
+
+18. **Which hook is used for managing state based on previous state in functional components?**
+    - A. `useState`
+    - B. `useEffect`
+    - C. `usePreviousState`
+    - D. `useReducer`
+
+    **Answer: C**
+
+19. **How can you conditionally render content based on a specific condition in JSX?**
+    - A. Using `if-else` statements
+    - B. Using the ternary operator
+    - C. Using logical AND (`&&`) operator
+    - D. All of the above
+
+    **Answer: D**
+
+20. **What is the purpose of the `create-react-app` tool?**
+    - A. To create a new React component
+    - B. To set up a new React project with a good default configuration
+    - C. To manage state in React
+    - D. To create global styles for a React application
+
+    **Answer: B**
+
+    1. **What is the primary purpose of the `key` prop in React?**
+   - A. To style elements in a list
+   - B. To identify unique elements in a collection
+   - C. To set default values for props
+   - D. To manage global state
+
+   **Answer: B**
+
+2. **Why is it important for the `key` prop to be unique within a collection of elements?**
+   - A. To apply different styles to each element
+   - B. To enhance component lifecycle predictability
+   - C. To improve animations on list items
+   - D. To efficiently identify and update specific elements during reconciliation
+
+   **Answer: D**
+
+3. **What issue can arise if the `key` prop is not unique within a list of React elements?**
+   - A. Improved performance
+   - B. Unnecessary component re-renders
+   - C. Predictable component lifecycle
+   - D. Preventing duplicate state
+
+   **Answer: B**
+
+4. **Why is using array indices as keys generally not recommended in React?**
+   - A. It improves component identity
+   - B. It ensures efficient updates during reconciliation
+   - C. It may cause incorrect identification of components when the list order changes
+   - D. It helps with dynamic data updates
+
+   **Answer: C**
+
+5. **In what scenarios can the use of stable and unique keys be particularly beneficial?**
+   - A. When applying global styles
+   - B. When preventing duplicate state
+   - C. When working with static data
+   - D. When optimizing animations or transitions on list items
+
+   **Answer: D**
+
+   1. **What does "lifting state up" refer to in React?**
+   - A. Elevating the physical location of a React component
+   - B. Passing data from a child component to a parent component
+   - C. Moving state to the topmost parent component for shared access
+   - D. Transferring styles from child to parent components
+
+   **Answer: C**
+
+2. **In React, why is it beneficial to lift state up to a common ancestor component?**
+   - A. To increase component encapsulation
+   - B. To simplify component structure
+   - C. To avoid the use of state entirely
+   - D. To share state among sibling components
+
+   **Answer: D**
+
+3. **What is JSX used for in React?**
+   - A. Defining styles for components
+   - B. Describing the structure of UI components
+   - C. Managing component state
+   - D. Handling asynchronous operations
+
+   **Answer: B**
+
+4. **Which of the following is a valid JSX syntax for rendering a dynamic value?**
+   - A. `<p>Value: {dynamicValue}</p>`
+   - B. `<p>Value: [dynamicValue]</p>`
+   - C. `<p>Value: {dynamicValue()}</p>`
+   - D. `<p>Value: ${dynamicValue}</p>`
+
+   **Answer: A**
+
+5. **When working with multiple components in React, what does the term "lifting state up" help avoid?**
+   - A. Code duplication
+   - B. Component re-rendering
+   - C. Conditional rendering
+   - D. Event handling issues
+
+   **Answer: A**
+
+6. **What is the primary purpose of curly braces `{}` in JSX?**
+   - A. To define component styles
+   - B. To create comments in JSX
+   - C. To embed JavaScript expressions
+   - D. To specify boolean attributes
+
+   **Answer: C**
+
+7. **When lifting state up in React, which component is responsible for managing the shared state?**
+   - A. The child component
+   - B. The topmost parent component
+   - C. The sibling component
+   - D. The middle component in the hierarchy
+
+   **Answer: B**
+
+8. **In JSX, why is it important to have a single root element when rendering multiple components?**
+   - A. To improve component encapsulation
+   - B. To simplify the component tree
+   - C. To avoid using curly braces `{}` in JSX
+   - D. To provide a unique identifier for each component
+
+   **Answer: B**
+
+   
+
