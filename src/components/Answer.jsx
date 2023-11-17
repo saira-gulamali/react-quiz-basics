@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 const Answer = ({ option, isCorrect, onAnswerSelect }) => {
   const [answered, setAnswered] = React.useState(false);
-  console.log("123 ", answered);
+
   const buttonClasses = classNames(
     "button",
     { "hover:bg-sky-500": !answered },
@@ -13,11 +13,13 @@ const Answer = ({ option, isCorrect, onAnswerSelect }) => {
       "bg-sky-700": !answered,
     },
     "text-white",
+    "font-semibold",
+    "text-lg",
+    "rounded-md",
+    "p-1",
+    "md:m-1",
   );
-  // const buttonClass = `button bg-${
-  //   !answered ? "sky" : answered && isCorrect ? "green" : "red"
-  // }-400 ${!answered ? "hover:bg-sky-500" : ""} text-white`;
-  // console.log({ buttonClass });
+
   return (
     <button
       className={buttonClasses}
