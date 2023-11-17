@@ -2,7 +2,13 @@ import React from "react";
 import Answer from "./Answer";
 import { ToastContainer } from "react-toastify";
 
-const Question = ({ question, onAnswerSelect, handleNext }) => {
+const Question = ({
+  question,
+  onAnswerSelect,
+  handleNext,
+  isNextEnabled,
+  setIsNextEnabled,
+}) => {
   const [showExplanation, setShowExplanation] = React.useState(false);
 
   return (
@@ -18,23 +24,27 @@ const Question = ({ question, onAnswerSelect, handleNext }) => {
               option={option}
               isCorrect={option === question.correctAnswer}
               onAnswerSelect={() => onAnswerSelect(option)}
+              isNextEnabled={isNextEnabled}
+              setIsNextEnabled={setIsNextEnabled}
             />
           ))}
         </div>
       </div>
       <div className="mt-4 md:mt-20 flex justify-between">
         <button
-          className="bg-sky-500 hover:bg-sky-300 text-white font-semibold py-2 px-4 rounded"
+          className="bg-sky-500 hover:bg-sky-300 text-white font-semibold py-2 px-4 rounded disabled:bg-stone-300"
           onMouseEnter={() => setShowExplanation(true)}
           onMouseLeave={() => {
             setShowExplanation(false);
           }}
+          disabled={!isNextEnabled}
         >
           Explanation
         </button>
         <button
-          className="bg-sky-500 hover:bg-sky-300 text-white font-semibold py-2 px-4 rounded"
+          className="bg-sky-500 hover:bg-sky-300 text-white font-semibold py-2 px-4 rounded disabled:bg-stone-300"
           onClick={handleNext}
+          disabled={!isNextEnabled}
         >
           Next
         </button>

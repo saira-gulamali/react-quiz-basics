@@ -6,14 +6,18 @@ import "react-toastify/dist/ReactToastify.css";
 import questions from "../assets/data.js";
 import rightAnswer from "../assets/right-answer.wav";
 import wrongAnswer from "../assets/wrong-answer.mp3";
+import ProgressBar from "./ProgressBar.jsx";
 
 const QuizApp = () => {
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const [userAnswers, setUserAnswers] = React.useState([]);
   const [showSummary, setShowSummary] = React.useState(false);
+  const [isNextEnabled, setIsNextEnabled] = React.useState(false);
 
   const rightSound = new Audio(rightAnswer);
   const wrongSound = new Audio(wrongAnswer);
+
+  const progress = ((currentQuestion + 1) / questions.length) * 100;
 
   const handleAnswerSelect = (answer) => {
     const nextUserAnswers = [...userAnswers];
@@ -34,6 +38,7 @@ const QuizApp = () => {
     } else {
       setShowSummary(true);
     }
+    setIsNextEnabled(false);
   };
 
   const restartQuiz = () => {
@@ -44,9 +49,13 @@ const QuizApp = () => {
 
   return (
     <div className="container mx-auto p-4 md:mt-16">
+      <ProgressBar progress={progress} />
       <h1 className="mb-2 md:mb-4 text-center text-3xl font-bold text-stone-700">
         React Basics and Hooks Quiz App
       </h1>
+      <p className="text-right">
+        {currentQuestion + 1}/{questions.length}
+      </p>
       {showSummary ? (
         <ResultSummary
           userAnswers={userAnswers}
@@ -59,6 +68,8 @@ const QuizApp = () => {
             question={questions[currentQuestion]}
             onAnswerSelect={handleAnswerSelect}
             handleNext={handleNext}
+            isNextEnabled={isNextEnabled}
+            setIsNextEnabled={setIsNextEnabled}
           />
 
           <ToastContainer />
