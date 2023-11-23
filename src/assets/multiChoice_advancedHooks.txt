@@ -1,0 +1,151 @@
+
+
+**1. What does the React `useReducer` hook do?**
+   a. Manages state logic for functional components
+   b. Performs side effects in a functional component
+   c. Memoizes the result of a function
+   d. Creates a memoized version of a component
+
+   **Answer: a**
+
+**2. When should you use the `useCallback` hook in React?**
+   a. To manage state in a functional component
+   b. To memoize a function for better performance
+   c. To access context values in a component
+   d. To create a memoized version of a component
+
+   **Answer: b**
+
+**3. What is the purpose of the `useMemo` hook in React?**
+   a. To manage state logic for functional components
+   b. To memoize the result of a function
+   c. To perform side effects in a functional component
+   d. To create a memoized version of a component
+
+   **Answer: b**
+
+**4. How does the `useContext` hook work in React?**
+   a. Manages state logic for functional components
+   b. Accesses the nearest common ancestor Provider in the component tree
+   c. Creates a memoized version of a component
+   d. Performs side effects in a functional component
+
+   **Answer: b**
+
+**5. What does the `React.memo` function do?**
+   a. Manages state logic for functional components
+   b. Creates a memoized version of a component
+   c. Memoizes the result of a function
+   d. Performs side effects in a functional component
+
+   **Answer: b**
+
+**6. When is the `useLayoutEffect` hook useful in React?**
+   a. To manage state logic for functional components
+   b. To access context values in a component
+   c. To perform side effects in a functional component with synchronous layout changes
+   d. To memoize the result of a function
+
+   **Answer: c**
+
+**7. What does the `useImperativeHandle` hook in React allow you to do?**
+   a. Access context values in a component
+   b. Expose specific functions to a parent component
+   c. Manage state logic for functional components
+   d. Perform side effects in a functional component
+
+   **Answer: b**
+
+**8. What is the purpose of the `useDebugValue` hook in React?**
+   a. Manages state logic for functional components
+   b. Provides a way to label custom hooks for better debugging in React DevTools
+   c. Accesses context values in a component
+   d. Creates a memoized version of a component
+
+   **Answer: b**
+
+**9. Which hook is used to optimize performance by memoizing the result of a function?**
+   a. `useReducer`
+   b. `useCallback`
+   c. `useMemo`
+   d. `useContext`
+
+   **Answer: c**
+
+**10. In what scenario would you typically use the `useCallback` hook?**
+   a. To manage state logic for functional components
+   b. To memoize a function for better performance
+   c. To access context values in a component
+   d. To create a memoized version of a component
+
+   **Answer: b**
+
+**11. What does the `useMemo` hook memoize?**
+   a. State values
+   b. Functions
+   c. Component instances
+   d. Rendered JSX elements
+
+   **Answer: b**
+
+**12. Which hook is used to access values from the React context in a component?**
+   a. `useContext`
+   b. `useLayoutEffect`
+   c. `useImperativeHandle`
+   d. `useDebugValue`
+
+   **Answer: a**
+
+**13. What is the purpose of the `useLayoutEffect` hook?**
+   a. To manage state logic for functional components
+   b. To access context values in a component
+   c. To perform side effects with synchronous layout changes
+   d. To create a memoized version of a component
+
+   **Answer: c**
+
+**14. When does the `React.memo` function re-render a memoized component?**
+   a. When the parent component re-renders
+   b. When the memoized component's props or state change
+   c. When a context value changes
+   d. When a layout effect occurs
+
+   **Answer: b**
+
+**15. What does the `useDebugValue` hook improve in React development?**
+   a. Performance optimization
+   b. Debugging in React DevTools
+   c. Access to context values
+   d. Memoization of functions
+
+   **Answer: b**
+
+   26. What is the recommended approach for updating arrays in state within a reducer function?
+a. Mutate the existing array directly
+b. Create a new array and replace the existing one
+c. Use the splice method to update the array
+d. Use the concat method to add elements to the array
+
+Answer: b
+
+Explanation: The recommended approach is to create a new array and replace the existing one when updating arrays in state within a reducer function. Mutating the existing array directly can lead to unexpected behavior.
+
+28. When might you pass an initializer function to useReducer instead of a direct initial state value?
+a. When the initial state is a primitive value
+b. When the initial state is an object with many properties
+c. When the initializer needs information to compute the initial state
+d. When there is no need for an initial state
+
+Answer: c
+
+Explanation: You might pass an initializer function when the initializer needs information to compute the initial state dynamically. This can be more efficient than re-creating the initial state on every render.
+
+22. In the context of React.memo, what does "shallow comparison of props" mean?
+a. Comparing only the top-level properties of objects
+b. Comparing deeply nested properties of objects
+c. Ignoring the properties of objects and comparing only primitive values
+d. Ignoring props comparison altogether
+
+Answer: a
+
+Explanation: "Shallow comparison of props" in React.memo means comparing only the top-level properties of objects, not deeply nested ones. It checks if the previous and current props have the same references for the top-level properties.

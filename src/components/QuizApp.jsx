@@ -3,16 +3,18 @@ import Question from "./Question";
 import ResultSummary from "./ResultSummary";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import questions from "../assets/data.js";
+import data from "../assets/data.js";
 import rightAnswer from "../assets/right-answer.wav";
 import wrongAnswer from "../assets/wrong-answer.mp3";
 import ProgressBar from "./ProgressBar.jsx";
 
-const QuizApp = () => {
+const QuizApp = ({ topic, setIsStartQuiz }) => {
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const [userAnswers, setUserAnswers] = React.useState([]);
   const [showSummary, setShowSummary] = React.useState(false);
   const [isNextEnabled, setIsNextEnabled] = React.useState(false);
+
+  const questions = data.filter((question) => question.topic === topic);
 
   const rightSound = new Audio(rightAnswer);
   const wrongSound = new Audio(wrongAnswer);
@@ -42,6 +44,7 @@ const QuizApp = () => {
   };
 
   const restartQuiz = () => {
+    setIsStartQuiz(false);
     setCurrentQuestion(0);
     setUserAnswers([]);
     setShowSummary(false);
