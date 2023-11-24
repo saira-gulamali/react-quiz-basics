@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import Question from "./Question";
 import ResultSummary from "./ResultSummary";
 import { toast, ToastContainer } from "react-toastify";
@@ -8,11 +8,39 @@ import rightAnswer from "../assets/right-answer.wav";
 import wrongAnswer from "../assets/wrong-answer.mp3";
 import ProgressBar from "./ProgressBar.jsx";
 
+// Action types
+const actionTypes = {
+  SET_CURRENT_QUESTION: "SET_CURRENT_QUESTION",
+  SET_USER_ANSWERS: "SET_USER_ANSWERS",
+  SET_SHOW_SUMMARY: "SET_SHOW_SUMMARY",
+  SET_IS_NEXT_ENABLED: "SET_IS_NEXT_ENABLED",
+};
+
+// Reducer function
+const quizReducer = (state, action) => {
+  switch (action.type) {
+    case actionTypes.SET_CURRENT_QUESTION:
+      return { ...state, currentQuestion: action.payload };
+    case actionTypes.SET_USER_ANSWERS:
+      return { ...state, userAnswers: action.payload };
+    case actionTypes.SET_SHOW_SUMMARY:
+      return { ...state, showSummary: action.payload };
+    case actionTypes.SET_IS_NEXT_ENABLED:
+      return { ...state, isNextEnabled: action.payload };
+    default:
+      return state;
+  }
+};
+
 const QuizApp = ({ topic, setIsStartQuiz }) => {
-  const [currentQuestion, setCurrentQuestion] = React.useState(0);
-  const [userAnswers, setUserAnswers] = React.useState([]);
-  const [showSummary, setShowSummary] = React.useState(false);
-  const [isNextEnabled, setIsNextEnabled] = React.useState(false);
+  const [state, dispatch] = useReducer(quizReducer, {
+    currentQuestion: 0,
+    userAnswers: [],
+    showSummary: false,
+    isNextEnabled: false,
+  });
+
+  const { currentQuestion, userAnswers, showSummary, isNextEnabled } = state;
 
   const questions = data.filter((question) => question.topic === topic);
 
@@ -24,7 +52,8 @@ const QuizApp = ({ topic, setIsStartQuiz }) => {
   const handleAnswerSelect = (answer) => {
     const nextUserAnswers = [...userAnswers];
     nextUserAnswers[currentQuestion] = answer;
-    setUserAnswers(nextUserAnswers);
+    dispatch({ type: actionTypes.SET_USER_ANSWERS, payload: nextUserAnswers });
+
     if (answer === questions[currentQuestion].correctAnswer) {
       toast.success("Correct Answer! 😊", { autoClose: 1000 });
       rightSound.play();
@@ -36,18 +65,22 @@ const QuizApp = ({ topic, setIsStartQuiz }) => {
 
   const handleNext = () => {
     if (currentQuestion + 1 < questions.length) {
-      setCurrentQuestion((prevQuestion) => prevQuestion + 1);
+      dispatch({
+        type: actionTypes.SET_CURRENT_QUESTION,
+        payload: currentQuestion + 1,
+      });
     } else {
-      setShowSummary(true);
+      dispatch({ type: actionTypes.SET_SHOW_SUMMARY, payload: true });
     }
-    setIsNextEnabled(false);
+    dispatch({ type: actionTypes.SET_IS_NEXT_ENABLED, payload: false });
   };
 
   const restartQuiz = () => {
     setIsStartQuiz(false);
-    setCurrentQuestion(0);
-    setUserAnswers([]);
-    setShowSummary(false);
+
+    dispatch({ type: actionTypes.SET_CURRENT_QUESTION, payload: 0 });
+    dispatch({ type: actionTypes.SET_USER_ANSWERS, payload: [] });
+    dispatch({ type: actionTypes.SET_SHOW_SUMMARY, payload: false });
   };
 
   return (
@@ -72,7 +105,12 @@ const QuizApp = ({ topic, setIsStartQuiz }) => {
             onAnswerSelect={handleAnswerSelect}
             handleNext={handleNext}
             isNextEnabled={isNextEnabled}
-            setIsNextEnabled={setIsNextEnabled}
+            setIsNextEnabled={(value) =>
+              dispatch({
+                type: actionTypes.SET_IS_NEXT_ENABLED,
+                payload: value,
+              })
+            }
           />
 
           <ToastContainer />

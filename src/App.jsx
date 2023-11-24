@@ -7,13 +7,12 @@ function App() {
   const [topic, setTopic] = React.useState("react basics");
   return (
     <>
-      {isStartQuiz && <QuizApp topic={topic} setIsStartQuiz={setIsStartQuiz} />}
-
-      {!isStartQuiz && (
+      {isStartQuiz ? (
+        <QuizApp topic={topic} setIsStartQuiz={setIsStartQuiz} />
+      ) : (
         <LandingPage
           topic={topic}
           setTopic={setTopic}
-          isStartQuiz={isStartQuiz}
           setIsStartQuiz={setIsStartQuiz}
         />
       )}
